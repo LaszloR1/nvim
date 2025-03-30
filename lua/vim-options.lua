@@ -21,14 +21,6 @@ vim.opt.expandtab = false
 -- Don't show the mode, since it's already in the status line
 vim.opt.showmode = false
 
--- Sync clipboard between OS and Neovim.
---  Schedule the setting after `UiEnter` because it can increase startup-time.
---  Remove this option if you want your OS clipboard to remain independent.
---  See `:help 'clipboard'`
-vim.schedule(function()
-    vim.opt.clipboard = "unnamedplus"
-end)
-
 -- Enable break indent
 vim.opt.breakindent = true
 
@@ -40,7 +32,7 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
 -- Keep signcolumn on by default
-vim.opt.signcolumn = "yes"
+-- vim.opt.signcolumn = "yes"
 
 -- Decrease update time
 vim.opt.updatetime = 250
@@ -76,12 +68,3 @@ vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" }
 vim.keymap.set("n", "<c-j>", ":wincmd j<CR>")
 vim.keymap.set("n", "<c-h>", ":wincmd h<CR>")
 vim.keymap.set("n", "<c-l>", ":wincmd l<CR>")
-
-vim.api.nvim_create_autocmd("VimEnter", {
-    callback = function()
-        local args = vim.fn.argv()
-        if #args == 1 and vim.fn.isdirectory(args[1]) == 1 then
-            require("neo-tree.command").execute({ dir = args[1] })
-        end
-    end,
-})
