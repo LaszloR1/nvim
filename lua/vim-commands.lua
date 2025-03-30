@@ -34,15 +34,10 @@ vim.api.nvim_create_autocmd("VimEnter", {
         if #args ~= 1 or vim.fn.isdirectory(args[1]) ~= 1 then
             return
         end
-		
-		vim.cmd("Neotree reveal")
-        -- vim.api.nvim_command("Neotree")
 
-        -- hacky fix for line numbers showing up on start for neo-tree. fix later
-        vim.schedule(function()
-			vim.cmd("Neotree reveal")
-			-- vim.wo.number = false
-			-- vim.wo.relativenumber = false
-        end)
+        vim.cmd("Neotree reveal")
+        -- hacky fix for line numbers showing up on start for neo-tree. todo: figure out
+        vim.wo.number = false
+        vim.wo.relativenumber = false
     end,
 })
