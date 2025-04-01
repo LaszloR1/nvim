@@ -19,23 +19,14 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 vim.api.nvim_create_autocmd("VimEnter", {
     callback = function()
-        local args = vim.fn.argv()
-
-        if #args == 1 and vim.fn.isdirectory(args[1]) == 1 then
-            --vim.api.nvim_command("Neotree")
-        end
-    end,
-})
-
-vim.api.nvim_create_autocmd("VimEnter", {
-    callback = function()
-        local args = vim.fn.argv()
-
-        if #args ~= 1 or vim.fn.isdirectory(args[1]) ~= 1 then
+        local path = vim.fn.expand("%:p")
+        if vim.fn.isdirectory(path) ~= 1 then
             return
         end
 
-        vim.cmd("Neotree reveal")
+        -- Open Neo-tree focused on the directory
+        vim.cmd("Neotree position=left dir=" .. path)
+
         -- hacky fix for line numbers showing up on start for neo-tree. todo: figure out
         vim.wo.number = false
         vim.wo.relativenumber = false
