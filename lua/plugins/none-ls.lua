@@ -11,6 +11,7 @@ return {
                 null_ls.builtins.diagnostics.rubocop,
                 null_ls.builtins.formatting.rubocop,
                 null_ls.builtins.formatting.alejandra,
+                null_ls.builtins.formatting.gofmt,
             },
             on_attach = function(client, bufnr)
                 if client.supports_method("textDocument/formatting") then
