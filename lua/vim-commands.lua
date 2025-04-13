@@ -32,3 +32,11 @@ vim.api.nvim_create_autocmd("VimEnter", {
         vim.wo.relativenumber = false
     end,
 })
+
+vim.api.nvim_create_autocmd("BufLeave", {
+    callback = function()
+        require("neo-tree.sources.filesystem.commands").refresh(
+            require("neo-tree.sources.manager").get_state("filesystem")
+        )
+    end,
+})
