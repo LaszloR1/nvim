@@ -16,7 +16,7 @@ vim.opt.mouse = "a"
 
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
-vim.opt.expandtab = false
+vim.opt.expandtab = true
 
 -- Don't show the mode, since it's already in the status line
 vim.opt.showmode = false
