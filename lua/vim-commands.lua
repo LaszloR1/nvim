@@ -26,10 +26,6 @@ vim.api.nvim_create_autocmd("VimEnter", {
 
         -- Open Neo-tree focused on the directory
         vim.cmd("Neotree position=left dir=" .. path)
-
-        -- hacky fix for line numbers showing up on start for neo-tree. todo: figure out
-        vim.wo.number = false
-        vim.wo.relativenumber = false
     end,
 })
 
