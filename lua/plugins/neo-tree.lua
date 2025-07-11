@@ -1,12 +1,14 @@
 return {
     "nvim-neo-tree/neo-tree.nvim",
-    version = "*",
+    branch = "v3.x",
     dependencies = {
         "nvim-lua/plenary.nvim",
         "nvim-tree/nvim-web-devicons",
         "MunifTanjim/nui.nvim",
     },
-    cmd = "Neotree",
+    lazy = false, -- neo-tree will lazily load itself
+    ---@module "neo-tree"
+    ---@type neotree.Config?
     keys = {
         { "<leader>nt", ":Neotree reveal<CR>", { desc = "NeoTree reveal" } },
     },
