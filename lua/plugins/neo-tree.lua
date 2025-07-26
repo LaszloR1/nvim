@@ -10,7 +10,20 @@ return {
     ---@module "neo-tree"
     ---@type neotree.Config?
     keys = {
-        { "<leader>nt", ":Neotree reveal<CR>", { desc = "NeoTree reveal" } },
+        {
+            "<leader>nt",
+            ":Neotree reveal<CR>",
+            desc = "NeoTree reveal",
+        },
+        {
+            "<leader>nr",
+            function()
+                require("neo-tree.sources.filesystem.commands").refresh(
+                    require("neo-tree.sources.manager").get_state("filesystem")
+                )
+            end,
+            desc = "NeoTree refresh",
+        },
     },
     opts = {
         filesystem = {
