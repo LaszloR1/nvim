@@ -6,8 +6,9 @@ return {
             local lspconfig = require("lspconfig")
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-            lspconfig.gopls.setup({})
-            lspconfig.nil_ls.setup({})
+            vim.lsp.enable("gopls")
+            vim.lsp.enable("nil_ls")
+            vim.lsp.enable("ts_ls")
 
             vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
             vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
