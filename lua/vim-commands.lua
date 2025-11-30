@@ -17,6 +17,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     end,
 })
 
+--[[
 vim.api.nvim_create_autocmd("VimEnter", {
     callback = function()
         local path = vim.fn.expand("%:p")
@@ -25,6 +26,8 @@ vim.api.nvim_create_autocmd("VimEnter", {
         end
 
         -- Open Neo-tree focused on the directory
-        vim.cmd("Neotree position=left dir=" .. path)
+        -- vim.cmd("Neotree position=left dir=" .. path)
     end,
 })
+]]
+--
