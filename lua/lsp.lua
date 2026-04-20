@@ -5,6 +5,8 @@ vim.lsp.enable({
     "ts_ls",
     "lua_ls",
     "nil_ls",
+    "html",
+    "templ",
 })
 
 vim.diagnostic.config({
