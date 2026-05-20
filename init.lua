@@ -1,17 +1,33 @@
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-    vim.fn.system({
-        "git",
-        "clone",
-        "--filter=blob:none",
-        "https://github.com/folke/lazy.nvim.git",
-        "--branch=stable", -- latest stable release
-        lazypath,
-    })
-end
-vim.opt.rtp:prepend(lazypath)
+-- Plugin declarations (vim.pack — built into Neovim 0.12)
+vim.pack.add({
+    "https://github.com/folke/tokyonight.nvim",
+    "https://github.com/echasnovski/mini.nvim",
+    "https://github.com/nvim-tree/nvim-web-devicons",
+    "https://github.com/nvim-tree/nvim-tree.lua",
+    "https://github.com/folke/which-key.nvim",
+    "https://github.com/folke/todo-comments.nvim",
+    "https://github.com/lewis6991/gitsigns.nvim",
+    "https://github.com/stevearc/conform.nvim",
+    { src = "https://github.com/saghen/blink.cmp", version = vim.version.range("1.0") },
+    "https://github.com/dmtrKovalenko/fff.nvim",
+    { src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
+    "https://github.com/danymat/neogen",
+})
 
+-- Core configuration
 require("vim-options")
 require("vim-commands")
 require("lsp")
-require("lazy").setup("plugins")
+
+-- Plugin configuration
+require("plugins.tokyo-night")
+require("plugins.mini")
+require("plugins.which-key")
+require("plugins.gitsigns")
+require("plugins.nvim-tree")
+require("plugins.todo")
+require("plugins.conform")
+require("plugins.blink-cmp")
+require("plugins.fff")
+require("plugins.nvim-treesitter")
+require("plugins.neogen")
