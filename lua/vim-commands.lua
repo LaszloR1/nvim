@@ -1,3 +1,8 @@
+-- Forward yanks to the host clipboard when running through SSH.
+if vim.env.SSH_TTY or vim.env.SSH_CONNECTION then
+    vim.g.clipboard = "osc52"
+end
+
 vim.schedule(function()
     vim.opt.clipboard = "unnamedplus"
 end)
