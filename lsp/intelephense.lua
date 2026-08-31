@@ -27,18 +27,18 @@
 
 ---@type vim.lsp.Config
 return {
-  cmd = { 'intelephense', '--stdio' },
-  filetypes = { 'php' },
-  root_markers = { '.git', 'composer.json' },
-  ---@type lspconfig.settings.intelephense
-  settings = {
-    intelephense = {
-      telemetry = {
-        enabled = false,
-      },
-      environment = {
-        phpVersion = '7.4.0',
-      },
+    cmd = { "intelephense", "--stdio" },
+    filetypes = { "php" },
+    root_markers = { ".git", "composer.json" },
+    ---@type lspconfig.settings.intelephense
+    settings = {
+        intelephense = {
+            telemetry = {
+                enabled = false,
+            },
+            environment = {
+                phpVersion = "8.5.0",
+            },
+        },
     },
-  },
 }
