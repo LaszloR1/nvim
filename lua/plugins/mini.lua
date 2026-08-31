@@ -13,6 +13,9 @@ require("mini.pairs").setup()
 --  - sr)'  - [S]urround [R]eplace [)] [']
 require("mini.surround").setup()
 
+
+require("mini.pick").setup()
+
 -- Statusline
 local statusline = require("mini.statusline")
 statusline.setup({ use_icons = vim.g.have_nerd_font })

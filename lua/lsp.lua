@@ -47,6 +47,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
         end
 
         map("grd", vim.lsp.buf.definition, "[G]oto [R]eference [D]efinition")
+        map("grr", function()
+            require("mini.extra").pickers.lsp({ scope = "references" })
+        end, "[G]oto [R]efe[R]ences")
         map("<leader>ws", vim.lsp.buf.workspace_symbol, "[W]orkspace [S]ymbols")
 
         -- Highlight references of the word under cursor on CursorHold
