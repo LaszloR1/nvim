@@ -44,6 +44,9 @@
         programs.neovim = {
           enable = true;
           defaultEditor = lib.mkDefault true;
+          viAlias = true;
+          vimAlias = true;
+
           configure = {
             packages.native.start = [
               fff.packages.${pkgs.stdenv.hostPlatform.system}.fff-nvim
